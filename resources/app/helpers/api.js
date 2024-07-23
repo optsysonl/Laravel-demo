@@ -48,10 +48,10 @@ export function getResponseError(error, response) {
 }
 export function prepareGitHubQuery(args) {
     let page = args.hasOwnProperty('page') ? args.page : null
-    let searchUsername = args.hasOwnProperty('searchUsername') ? args.search : null;
+    let searchUsername = args.hasOwnProperty('searchUsername') ? args.searchUsername : null;
     let params = {page: page}
     if (searchUsername) {
-        params.searchUsername = search;
+        params.searchUsername = searchUsername;
     }
     return params;
 }

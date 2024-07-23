@@ -3,7 +3,7 @@
 
             <Alert class="mb-4"></Alert>
             <Form id="github-usersearch" @submit.prevent="onFormSubmit">
-                <TextInput type="text" :label="trans('github.labels.searchquery')" name="searchquery" v-model="form.searchquery" autocomplete="email" class="mb-2"/>
+                <TextInput type="text" :label="trans('github.labels.searchusername')" name="searchusername" v-model="form.searchusername" autocomplete="email" class="mb-2"/>
                 <div class="text-center">
                     <Button type="submit" :label="trans('global.buttons.search')"/>
                 </div>
@@ -74,7 +74,7 @@ export default defineComponent({
     setup(emits) {
         const service = new GithubService();
         const form = reactive({
-            searchquery: null,
+            searchusername: '',
         })
         const alertStore = useAlertStore();
         const mainQuery = reactive({
@@ -134,7 +134,7 @@ export default defineComponent({
         }
 
         function onFormSubmit() {
-            mainQuery.searchUsername = form.searchquery;
+            mainQuery.searchUsername = form.searchusername;
             fetchPage(mainQuery);
         }
 

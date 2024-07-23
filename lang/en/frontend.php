@@ -12,7 +12,7 @@ return [
     */
     'github' => [
         'labels' => [
-            'searchquery' => 'Search Query',
+            'searchusername' => 'Search Query',
             'avatar' => 'Avatar',
             'followers' => 'Followers',
         ],
