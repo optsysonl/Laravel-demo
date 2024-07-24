@@ -15,7 +15,7 @@
                 Follower Count: {{ github_user.github_followers_count }}
             </div>
 
-            <Table :id="page.id" v-if="github_user.followers_table" :headers="github_user.followers_table.headers" :records="github_user.followers_table.records" :pagination="github_user.followers_table.pagination" :is-loading="github_user.followers_table.loading">
+            <Table :id="page.id" v-if="github_user.followers_table" :headers="github_user.followers_table.headers" :records="github_user.followers_table.records" :is-loading="github_user.followers_table.loading">
                 <template v-slot:content-avatar_url="props">
                     <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
@@ -27,9 +27,11 @@
             </Table>
 
             <template v-if="github_user.followers_table.is_load_more">
-                <Form id="github-load_more" @submit.prevent="onFormLoadSubmit" >
-                    <Button type="submit" :label="trans('global.buttons.load_more')" />
-                </Form>
+                <div class="flex flex-col items-center">
+                    <Form id="github-load_more" @submit.prevent="onFormLoadSubmit" >
+                        <Button type="submit" :label="trans('global.buttons.load_more')" />
+                    </Form>
+                </div>
             </template>
     </Page>
 </template>
@@ -107,7 +109,7 @@ export default defineComponent({
                 },
                 actions: {},
                 loading: false,
-                records: null,
+                records: [],
                 is_load_more: false
             }
         })
@@ -115,8 +117,8 @@ export default defineComponent({
         function fetchPage(params) {
             github_user.github_handle = '';
             github_user.github_followers_count = '';
-            github_user.followers_table.records = [];
-            github_user.followers_table.loading = true;
+            //github_user.followers_table.records = [];
+            //github_user.followers_table.loading = true;
             alertStore.clear();
             let query = prepareGitHubQuery(params);
             service
@@ -124,7 +126,7 @@ export default defineComponent({
                 .then((response) => {
                     github_user.github_handle = response.data.github_handle;
                     github_user.github_followers_count = response.data.followers_count;
-                    github_user.followers_table.records = response.data.followers;
+                    github_user.followers_table.records = github_user.followers_table.records.concat(response.data.followers);
                     github_user.followers_table.pagination.meta = response.data.pagination.meta;
                     github_user.followers_table.pagination.links = response.data.pagination.links;
                     github_user.followers_table.loading = false;
@@ -155,9 +157,9 @@ export default defineComponent({
         }
 
 
-        watch(mainQuery, (newTableState) => {
+        /*watch(mainQuery, (newTableState) => {
             fetchPage(mainQuery);
-        });
+        });*/
 
         onMounted(() => {
             //fetchPage(mainQuery);

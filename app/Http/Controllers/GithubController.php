@@ -58,10 +58,7 @@ class GithubController extends Controller
                     'from' => 1,
                     'last_page' => $total_pages,
                 ],
-                'links' => '',
-                'current_page' => $page,
-                'last_page' => $total_pages,
-            ]
+                'links' => '',            ]
         ];
     }
 }
