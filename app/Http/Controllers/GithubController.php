@@ -32,10 +32,7 @@ class GithubController extends Controller
      */
     public function search(Request $request)
     {
-        //$this->authorize('github', Github::class);
-        //dd($request->page);
-        //dd(GitHub::users()->show('KnpLabs'));
-        $per_page = 10;
+        $per_page = 20;
         $searchUsername = $request->searchUsername;
         $page = intval($request->page);
         $params = [
@@ -43,7 +40,6 @@ class GithubController extends Controller
             'per_page' => $per_page,
         ];
 
-        //dd(GitHub::users()->show($searchUsername)['followers']);
         $followers_count = GitHub::users()->show($searchUsername)['followers'];
         $followers = GitHub::users()->followers($searchUsername, $params);
         $total_pages = ceil($followers_count / $per_page);

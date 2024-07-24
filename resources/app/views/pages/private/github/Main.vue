@@ -1,6 +1,5 @@
 <template>
     <Page :title="page.title" :breadcrumbs="page.breadcrumbs" :actions="page.actions">
-        gdarko
             <Form id="github-usersearch" @submit.prevent="onFormSearchSubmit">
                 <TextInput type="text" :label="trans('github.labels.searchusername')" name="searchusername" v-model="form.searchusername" autocomplete="email" class="mb-2" />
                 <div class="text-center">
@@ -8,10 +7,10 @@
                 </div>
             </Form>
 
-            <div>
+            <div class="mb-2 text-3xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-blue-500 to-green-500">
                 User: {{ github_user.github_handle }}
             </div>
-            <div>
+            <div class="mb-2 text-3xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-blue-500 to-green-500">
                 Follower Count: {{ github_user.github_followers_count }}
             </div>
 
