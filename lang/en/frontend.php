@@ -123,6 +123,7 @@ return [
             'upload' => 'Upload',
             'update' => 'Update',
             'change_avatar' => 'Change Avatar',
+            'load_more' => 'Load More',
         ],
         'actions' => [
             'name' => 'Actions',

@@ -12,7 +12,7 @@
                         </div>
                     </slot>
                 </th>
-                <th v-if="actions" scope="col" class="align-middle px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th v-if="Object.keys(actions).length > 1" scope="col" class="align-middle px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                     <slot name="actions">{{ trans('global.actions.name') }}</slot>
                 </th>
             </tr>
@@ -24,7 +24,7 @@
                         {{ record && record.hasOwnProperty(j) ? record[j] : '' }}
                     </slot>
                 </td>
-                <td v-if="actions" class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <td v-if="Object.keys(actions).length > 1" class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <slot :name="'actions-'+j" v-for="(action, j) in actions">
                         <router-link v-if="action.hasOwnProperty('to') && action.to" :to="getActionPage(action, record)" :class="getActionClass(action)" :title="action.name">
                             <i v-if="action.icon" :class="action.icon"></i>
