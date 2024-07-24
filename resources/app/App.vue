@@ -142,6 +142,15 @@ export default {
                     to: '/panel/dashboard',
                 },
                 {
+                    name: trans('global.pages.github'),
+                    icon: 'github',
+                    showDesktop: true,
+                    showMobile: true,
+                    requiresAbility: false,
+                    to: '/panel/github',
+
+                },
+                {
                     name: trans('global.pages.users'),
                     icon: 'users',
                     showDesktop: true,

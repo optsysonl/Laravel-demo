@@ -57,6 +57,7 @@ return [
     'global' => [
         'pages' => [
             'home' => 'Dashboard',
+            'github' => 'GitHub',
             'users' => 'Users',
             'users_create' => 'New User',
             'users_edit' => 'Edit User',
