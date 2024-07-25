@@ -21,6 +21,9 @@ The project is built with the following components:
 - Media Library (by Spatie)
 - Bouncer (by JosephSilber)
 
+Original code from: https://github.com/gdarko/laravel-vue-starter
+And utilizing: https://github.com/GrahamCampbell/Laravel-GitHub
+
 ## ⚡️ How to install
 
 Installation is simple. Just like your ordinary Laravel app.
